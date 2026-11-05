@@ -118,6 +118,7 @@ Conventions: +Y forward, +Z up, metres. Set `OUT` or the `RF_OUT` environment va
 reference-forge/
 ├── SKILL.md        # the skill Claude reads
 ├── README.md
+├── LICENSE         # MIT
 └── scripts/        # Blender / Python helpers
 ```
 
@@ -128,6 +129,10 @@ reference-forge/
 - Downloading assets or opening external sites is always done with your approval.
 - Scores are working scores against the defined criteria, not a scientific similarity measurement.
 - Procedural materials must be baked before they work in a game engine.
+
+## License
+
+[MIT](LICENSE) © 2026 ItsRegnalt
 
 ---
 
