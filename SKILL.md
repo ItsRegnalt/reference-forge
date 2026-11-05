@@ -68,6 +68,12 @@ Tag each reference with one or more roles:
 
 Set the primary source for each area. Keep the priority the user set.
 
+**Use all references at once.** Every reference the user gave (reference models, the original/in-game model being
+remade, photos, drawings) takes part in every comparison, side by side, at the same time. Never compare against one
+reference this round and another reference next round. Each reference is judged for its own roles, but all are always
+visible together, so differences between the references and the output are seen in one place. Keep a list of all
+references (name, file, roles) in the working note and use it as the column set of every comparison.
+
 Do not silently average conflicting references. If the priority is unclear and it affects the result, ask.
 
 Record unseen surfaces and inferred details as "estimated". Never report them as verified reference matches.
@@ -266,14 +272,18 @@ to tell what is what without reading an explanation.
 
 - **When:** at the end of every region, at every stage change (blockout, detail, material/UV, delivery), after a big
   fix and whenever the user asks. It comes before the text report.
-- **Layout:** columns `Reference (original)` | `Ours` | if needed `Difference / overlay` (silhouette difference, edge
-  overlay, mask). Rows are views (right, left, top, bottom, front, back, 3/4 obliques, detail close-ups). Images in one
-  row use the same camera, scale and light.
+- **Layout:** one column per reference — every reference the user gave, all in every collage (e.g. `Reference:
+  Cinnamon M4A1` | `Original: in-game model` | `Photo: product`) — then `Ours`, then if needed `Difference / overlay`
+  (silhouette difference, edge overlay, mask; against the primary reference for that area). Rows are views (right,
+  left, top, bottom, front, back, 3/4 obliques, detail close-ups). Images in one row use the same camera, scale and
+  light; for photos use the closest matching photo per view. Never drop a reference column to save space: split the
+  rows into more collages instead.
 - **Labels (inside the image, in the user's language, short):** only what the image and the model are. Title = part
   and version (e.g. "Magazine v3"); column header = model name (e.g. "Reference: Cinnamon M4A1", "Ours: Rifle v3",
   "Difference"); row label = view (e.g. "Right", "Bottom", "3/4 front"). No explanations, measurements, reading
-  instructions or footnotes (leave `note`, `subtitle`, `footer` empty in the spec). Views missing in the reference are
-  drawn as an empty cell with a short "n/a" label in the user's language (`missing_label`).
+  instructions or footnotes (leave `note`, `subtitle`, `footer` empty in the spec). Views missing in a reference are
+  drawn as an empty cell with a short "n/a" label in the user's language (`missing_label`). With many references, lower
+  `cell` (e.g. 300 px) so a row still fits on screen.
 - **Tool:** `scripts/rf_collage.py` (outside Blender, Pillow): `python rf_collage.py spec.json out.png`; the spec format
   is at the top of the script. Render the images to separate files in Blender, then build the collage.
 - **Sending:** send the collage to the chat as a file that opens as an image, with no caption or one short line. If no
@@ -318,7 +328,7 @@ modelling a part (e.g. a magazine):
    UV layout and texel density, colour and material regions, wear/paint marks, connection details. Inspect the
    reference's texture maps (BaseColor, Normal, Roughness, AO) on the same part one by one; decide whether normal-map
    detail is matched in geometry or in texture.
-5. **Shoot your part with the same set** and put each angle next to the reference. For every inventory item record:
+5. **Shoot your part with the same set** and put each angle next to all references at once. For every inventory item record:
    present and correct / present but wrong / missing / intentionally not done (reason).
 6. **Detail the unseen places too.** Do not simplify faces that exist in the reference but are not visible from the
    main angle; a detailed easy face with flat remaining faces is not acceptable. Mark only regions that are truly not
@@ -344,7 +354,7 @@ reference, scope change) or when sources conflict unresolvably; show the options
 Run the loop like this:
 
 1. Produce the current version's required renders and measurements (the stage's mandatory tools, §5 toolkit).
-2. Compare overlays, side-by-side views and the needed detail crops against the reference.
+2. Compare overlays, side-by-side views and the needed detail crops against all references at once (§2).
 3. Record each failure with region, area, view and severity.
 4. Find the cause of the most important failure.
 5. Make a limited change aimed at that cause.
@@ -450,7 +460,7 @@ Do not produce unrequested extra deliverables.
 
 The final report shows:
 
-- Comparison images from angles matching the reference, as labelled progress collages (§5).
+- Comparison images from matching angles with every reference side by side, as labelled progress collages (§5).
 - Per-area results and the evaluation methods.
 - Unmet criteria and known defects.
 - Estimated (unseen) regions.
@@ -559,6 +569,8 @@ baked to textures on UVs. Plan UVs before or together with materials.
 - Drifting away from the features to keep while detailing.
 - Gaps between parts, floating pads/frames, ends sunk into each other.
 - Keeping your own invented version when the user gave a reference.
+- Comparing or showing only one reference at a time when the user gave several; every comparison and collage
+  carries all references together.
 - Deleting old objects through name clashes; big operations in an unsaved scene.
 - Small, scattered, out-of-proportion patterns.
 - Asking "want me to fix it?" instead of fixing a found defect.

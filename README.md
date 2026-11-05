@@ -27,8 +27,10 @@ modular attachments, but nothing in it is weapon-specific.
   changes approach when progress stalls, and only asks you real design decisions.
 - **LookDev and bake.** Layered procedural PBR materials (base, roughness breakup, micro bump / stippling, edge wear,
   cavity dirt, heat), UV rules and a bake helper that produces BaseColor / Roughness / Metallic / Normal for game engines.
-- **Progress collages in the chat.** Reference | ours | difference columns, one row per view, short labels in your
-  language.
+- **All references at once.** Give it a reference model, the original you are remaking and some photos: every
+  comparison and collage shows all of them side by side, never one at a time.
+- **Progress collages in the chat.** One column per reference, then ours and the difference; one row per view; short
+  labels in your language.
 - **Modular attachments.** Swappable parts on root Empties that snap to socket Empties on the main model.
 - **Speaks your language.** Replies and collage labels follow your operating system's display language.
 
